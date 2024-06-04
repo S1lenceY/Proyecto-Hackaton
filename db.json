@@ -1,0 +1,578 @@
+{
+  "login": [
+    {
+      "id": 1,
+      "nombre": "David",
+      "password": "1234"
+    },
+    {
+      "nombre": "jhomt",
+      "password": "jhomt",
+      "id": 2
+    },
+    {
+      "nombre": "jhomt",
+      "password": "jhomt",
+      "id": 3
+    },
+    {
+      "nombre": "",
+      "password": "",
+      "id": 4
+    },
+    {
+      "nombre": "",
+      "password": "",
+      "id": 5
+    },
+    {
+      "nombre": "",
+      "password": "",
+      "id": 6
+    },
+    {
+      "nombre": "",
+      "password": "",
+      "id": 7
+    },
+    {
+      "nombre": "",
+      "password": "",
+      "id": 8
+    },
+    {
+      "nombre": "1",
+      "password": "1",
+      "id": 9
+    }
+  ],
+  "detallecompra": [
+    {
+      "id": 1,
+      "id_comprobante": 1,
+      "id_producto": 1,
+      "cantidad": 1.5,
+      "precio": 1.5,
+      "estado_entrega": false,
+      "estado_pago": false
+    },
+    {
+      "id_comprobante": 2,
+      "cantidad": 1,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 2
+    },
+    {
+      "id_comprobante": 2,
+      "cantidad": 1,
+      "precio": 2.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 3
+    },
+    {
+      "id_comprobante": 2,
+      "cantidad": 1,
+      "precio": 3,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 4
+    },
+    {
+      "id_comprobante": 2,
+      "cantidad": 1,
+      "precio": 2,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 5
+    },
+    {
+      "id_comprobante": 2,
+      "cantidad": 1,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 6
+    },
+    {
+      "id_comprobante": 2,
+      "cantidad": 1,
+      "precio": 2.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 7
+    },
+    {
+      "id_comprobante": 2,
+      "cantidad": 1,
+      "precio": 3,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 8
+    },
+    {
+      "id_comprobante": 2,
+      "cantidad": 1,
+      "precio": 2,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 9
+    },
+    {
+      "id_comprobante": 25,
+      "cantidad": 1,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 10
+    },
+    {
+      "id_comprobante": 31,
+      "cantidad": 1,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 11
+    },
+    {
+      "id_comprobante": 32,
+      "cantidad": 1,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 12
+    },
+    {
+      "id_comprobante": 33,
+      "cantidad": 1,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 13
+    },
+    {
+      "id_comprobante": 34,
+      "cantidad": 1,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 14
+    },
+    {
+      "id_comprobante": 35,
+      "cantidad": 1,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 15
+    },
+    {
+      "id_comprobante": 36,
+      "cantidad": null,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 16
+    },
+    {
+      "id_comprobante": 37,
+      "cantidad": 3,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 17
+    },
+    {
+      "id_comprobante": 37,
+      "cantidad": 2,
+      "precio": 2,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 18
+    },
+    {
+      "id_comprobante": 38,
+      "cantidad": 3,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 19
+    },
+    {
+      "id_comprobante": 38,
+      "cantidad": 2,
+      "precio": 2,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 20
+    },
+    {
+      "id_comprobante": 39,
+      "cantidad": 2,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 21
+    },
+    {
+      "id_comprobante": 40,
+      "cantidad": 3,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 22
+    },
+    {
+      "id_comprobante": 41,
+      "cantidad": 3,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 23
+    },
+    {
+      "id_comprobante": 42,
+      "cantidad": 3,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 24
+    },
+    {
+      "id_comprobante": 43,
+      "cantidad": 2,
+      "precio": 2,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 25
+    },
+    {
+      "id_comprobante": 43,
+      "cantidad": 1,
+      "precio": 1.5,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 26
+    },
+    {
+      "id_comprobante": 44,
+      "cantidad": 2,
+      "precio": 2,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 27
+    },
+    {
+      "id_comprobante": 44,
+      "cantidad": 3,
+      "precio": 2,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 28
+    },
+    {
+      "id_comprobante": 45,
+      "cantidad": 2,
+      "precio": 2,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 29
+    },
+    {
+      "id_comprobante": 45,
+      "cantidad": 4,
+      "precio": 2,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 30
+    },
+    {
+      "id_comprobante": 46,
+      "cantidad": 3,
+      "precio": 2,
+      "estado_entrega": true,
+      "estado_pago": false,
+      "id": 31
+    }
+  ],
+  "comprobante": [
+    {
+      "id": 1,
+      "fecha": "2024-05-14",
+      "total": 32.5,
+      "id_usuario": 4
+    },
+    {
+      "fecha": "2024-05-15",
+      "total": 10.62,
+      "id_usuario": 175,
+      "id": 2
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 3
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 4
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 5
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 6
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 7
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 8
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 9
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 10
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 11
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 12
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 13
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 14
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 15
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 16
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 17
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 18
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 19
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 20
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 21
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 22
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 23
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 24
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 1.77,
+      "id_usuario": null,
+      "id": 25
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 1.77,
+      "id_usuario": null,
+      "id": 26
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 27
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 28
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 29
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 1.77,
+      "id_usuario": null,
+      "id": 30
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 1.77,
+      "id_usuario": null,
+      "id": 31
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 1.77,
+      "id_usuario": null,
+      "id": 32
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 1.77,
+      "id_usuario": null,
+      "id": 33
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 1.77,
+      "id_usuario": null,
+      "id": 34
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 1.77,
+      "id_usuario": null,
+      "id": 35
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 0,
+      "id_usuario": null,
+      "id": 36
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 10.03,
+      "id_usuario": null,
+      "id": 37
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 10.03,
+      "id_usuario": null,
+      "id": 38
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 3.54,
+      "id_usuario": null,
+      "id": 39
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 5.31,
+      "id_usuario": null,
+      "id": 40
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 5.31,
+      "id_usuario": null,
+      "id": 41
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 5.31,
+      "id_usuario": null,
+      "id": 42
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 6.49,
+      "id_usuario": null,
+      "id": 43
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 11.8,
+      "id_usuario": null,
+      "id": 44
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 14.16,
+      "id_usuario": null,
+      "id": 45
+    },
+    {
+      "fecha": "2024-05-16",
+      "total": 7.08,
+      "id_usuario": null,
+      "id": 46
+    }
+  ]
+}
