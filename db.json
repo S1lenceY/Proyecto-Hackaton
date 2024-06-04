@@ -44,6 +44,21 @@
       "nombre": "1",
       "password": "1",
       "id": 9
+    },
+    {
+      "nombre": "1",
+      "password": "1",
+      "id": 10
+    },
+    {
+      "nombre": "",
+      "password": "",
+      "id": 11
+    },
+    {
+      "nombre": "1",
+      "password": "1",
+      "id": 12
     }
   ],
   "detallecompra": [
