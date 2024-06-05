@@ -4,7 +4,7 @@ import { AiOutlineDollar } from "react-icons/ai";
 import { useLoaderData } from "react-router-dom";
 import imagenes from "../Path/Imagenes";
 
-const Productos = () => {
+const Amigos = () => {
 
   return (
     <>
@@ -13,4 +13,4 @@ const Productos = () => {
   );
 };
 
-export default Productos;
+export default Amigos;

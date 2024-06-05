@@ -59,6 +59,26 @@
       "nombre": "1",
       "password": "1",
       "id": 12
+    },
+    {
+      "nombre": "",
+      "password": "",
+      "id": 13
+    },
+    {
+      "nombre": "",
+      "password": "",
+      "id": 14
+    },
+    {
+      "nombre": "",
+      "password": "",
+      "id": 15
+    },
+    {
+      "nombre": "",
+      "password": "",
+      "id": 16
     }
   ],
   "detallecompra": [

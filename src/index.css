@@ -58,6 +58,11 @@
     /* Modal */
     --bgsubtitlemodal: 82 82 91;
     --bgmodal: 239 245 254;
+
+    /* Perfil */
+    --bginsignia: 215 231 255;
+    --bgperfilline: 110 116 139;
+    --bgpurplebutton: 91 54 240;
   }
   
   .dark {
@@ -116,4 +121,9 @@
     /* Modal */
     --bgsubtitlemodal: 255 255 255;
     --bgmodal: 37 41 69;
+
+    /* Perfil */
+    --bginsignia: 37 41 69;
+    --bgperfilline: 37 41 69;
+    --bgpurplebutton: 89 89 221;
   }

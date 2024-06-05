@@ -6,28 +6,25 @@ import {
   LOGIN,
   LOGOUT,
   CHAT,
-  ERROR,
   INICIO,
   MAIN,
-  PRODUCTOS,
-  CANJEAR,
-  CARRITO,
+  AMIGOS,
+  GRUPOS,
+  PERFIL,
 } from "./Path/Paths";
 import Chat from "./Components/Chat";
 import Login from "./Components/Login";
 import Logout from "./Components/Logout";
 import ErrorPage from "./Error/ErrorPage";
 import Inicio from "./Components/Inicio";
-import Productos from "./Components/Productos";
-import Canjear from "./Components/Canjear";
-import Carrito from "./Components/Carrito";
-import { CoinsProvider } from "./Auth/CoinsContext";
+import Amigos from "./Components/Amigos";
+import Grupos from "./Components/Grupos";
+import Perfil from "./Components/Perfil";
 
 const router = createBrowserRouter([
   {
     path: CHAT,
     element: <PrivateRoute />,
-    errorElement: <ErrorPage />,
     children: [
       {
         path: MAIN,
@@ -38,16 +35,16 @@ const router = createBrowserRouter([
             element: <Inicio />,
           },
           {
-            path: PRODUCTOS,
-            element: <Productos />,
+            path: AMIGOS,
+            element: <Amigos />,
           },
           {
-            path: CANJEAR,
-            element: <Canjear />,
+            path: GRUPOS,
+            element: <Grupos />,
           },
           {
-            path: CARRITO,
-            element: <Carrito />,
+            path: PERFIL,
+            element: <Perfil />,
           },
         ],
       },
@@ -60,6 +57,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <PublicRoute />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -73,9 +71,7 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <AuthContextProvider>
-      <CoinsProvider>
-        <RouterProvider router={router} />
-      </CoinsProvider>
+      <RouterProvider router={router} />
     </AuthContextProvider>
   );
 };

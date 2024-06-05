@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { IoIosMenu } from "react-icons/io";
 import { FiArrowLeft } from "react-icons/fi";
-import { MdOutlineShoppingCart } from "react-icons/md";
 import { BiDish } from "react-icons/bi";
-import { GoHome, GoGift } from "react-icons/go";
+import { LuUserCircle2 } from "react-icons/lu";
+import { GrGroup } from "react-icons/gr";
+import { GoHome, GoPeople} from "react-icons/go";
 import ThemeButton from "../Utils/ThemeButton";
 import Header from "./Header";
 import { Link } from "react-router-dom";
-import { INICIO, PRODUCTOS, CANJEAR, CARRITO } from "../../Path/Paths";
+import { INICIO, AMIGOS, GRUPOS, PERFIL } from "../../Path/Paths";
 import User from "../../Assets/Logo.webp";
 
 const Sidebar = () => {
@@ -66,18 +67,48 @@ const Sidebar = () => {
           </div>
         </Link>
         <Link
-          id={PRODUCTOS}
-          to={PRODUCTOS}
+          id={AMIGOS}
+          to={AMIGOS}
           className={` flex flex-col justify-center border-l-4 h-20 gap-2 ${
-            selectedLink === PRODUCTOS
+            selectedLink === AMIGOS
               ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
               : "text-white border-l-backgroundsidebar"
           }`}
-          onClick={() => handleLinkClick(PRODUCTOS)}
+          onClick={() => handleLinkClick(AMIGOS)}
         >
           <div className="flex flex-col gap-2 w-20 items-center">
-            <BiDish className="text-2xl" />
+            <GoPeople className="text-2xl" />
             <span className=" text-xs">Amigos</span>
+          </div>
+        </Link>
+        <Link
+          id={GRUPOS}
+          to={GRUPOS}
+          className={` flex flex-col justify-center border-l-4 h-20 gap-2 ${
+            selectedLink === GRUPOS
+              ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
+              : "text-white border-l-backgroundsidebar"
+          }`}
+          onClick={() => handleLinkClick(GRUPOS)}
+        >
+          <div className="flex flex-col gap-2 w-20 items-center">
+            <GrGroup className="text-2xl" />
+            <span className=" text-xs">Grupos</span>
+          </div>
+        </Link>
+        <Link
+          id={PERFIL}
+          to={PERFIL}
+          className={` flex flex-col justify-center border-l-4 h-20 gap-2 ${
+            selectedLink === PERFIL
+              ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
+              : "text-white border-l-backgroundsidebar"
+          }`}
+          onClick={() => handleLinkClick(PERFIL)}
+        >
+          <div className="flex flex-col gap-2 w-20 items-center">
+            <LuUserCircle2  className="text-2xl" />
+            <span className=" text-xs">Perfil</span>
           </div>
         </Link>
       </div>
@@ -130,19 +161,49 @@ const Sidebar = () => {
             <span className="text-sm">Inicio</span>
           </Link>
           <Link
-            to={PRODUCTOS}
+            to={AMIGOS}
             className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-10 ${
-              selectedLink === PRODUCTOS
+              selectedLink === AMIGOS
                 ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
                 : "text-white border-l-backgroundsidebar"
             }`}
             onClick={() => {
-              handleLinkClick(PRODUCTOS);
+              handleLinkClick(AMIGOS);
               handleBackClick();
             }}
           >
-            <BiDish className="text-2xl" />
-            <span className="text-sm">Productos</span>
+            <GoPeople className="text-2xl" />
+            <span className="text-sm">Amigos</span>
+          </Link>
+          <Link
+            to={GRUPOS}
+            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-10 ${
+              selectedLink === GRUPOS
+                ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
+                : "text-white border-l-backgroundsidebar"
+            }`}
+            onClick={() => {
+              handleLinkClick(GRUPOS);
+              handleBackClick();
+            }}
+          >
+            <GrGroup className="text-2xl" />
+            <span className="text-sm">Grupos</span>
+          </Link>
+          <Link
+            to={PERFIL}
+            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-10 ${
+              selectedLink === PERFIL
+                ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
+                : "text-white border-l-backgroundsidebar"
+            }`}
+            onClick={() => {
+              handleLinkClick(PERFIL);
+              handleBackClick();
+            }}
+          >
+            <LuUserCircle2  className="text-2xl" />
+            <span className="text-sm">Perfil</span>
           </Link>
 
           <div className="flex justify-center items-center">

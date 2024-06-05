@@ -6,13 +6,13 @@ import { ImHappy } from "react-icons/im";
 import imagenes from "../Path/Imagenes";
 import { useCoins } from "../Auth/CoinsContext";
 
-const Canjear = () => {
+const Grupos = () => {
 
   return (
     <>
-     <div>Canjear</div>
+     <div>Grupos</div>
     </>
   );
 };
 
-export default Canjear;
+export default Grupos;

@@ -43,6 +43,9 @@ export default {
         bgedit: "rgba(var(--bgedit))",
         bgmodal: "rgba(var(--bgmodal))",
         bgsubtitlemodal: "rgba(var(--bgsubtitlemodal))",
+        bginsignia: "rgba(var(--bginsignia))",
+        bgperfilline: "rgba(var(--bgperfilline))",
+        bgpurplebutton: "rgba(var(--bgpurplebutton))"
       },
     },
   },
