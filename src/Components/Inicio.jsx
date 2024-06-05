@@ -1,12 +1,15 @@
 import React from "react";
-import { BsFillSendFill, BsTypeItalic, BsSend, BsHeart, BsHeartFill } from "react-icons/bs";
 import {
-  AiOutlinePicture,
-  AiOutlineBold,
-} from "react-icons/ai";
+  BsFillSendFill,
+  BsTypeItalic,
+  BsSend,
+  BsHeart,
+  BsHeartFill,
+} from "react-icons/bs";
+import { AiOutlinePicture, AiOutlineBold } from "react-icons/ai";
 import UserImage from "../Assets/User.png";
 import Amigos from "../Assets/amigos.png";
-import Logo from "../Assets/Logo.webp"
+import Logo from "../Assets/Logo.webp";
 
 const Inicio = () => {
   return (
@@ -18,7 +21,7 @@ const Inicio = () => {
       </div>
 
       <div className="flex mt-5 w-full h-full justify-evenly">
-        <div className="flex flex-col text-titlecolor w-full sm:w-[600px] md:mr-10 md:max-h-[500px] md:overflow-y-auto scroll">
+        <div className="flex flex-col text-titlecolor w-full sm:max-w-[600px]  md:mr-10 md:max-h-[480px] md:overflow-y-auto">
           <div className="flex flex-col bg-bgcard p-3 rounded-xl text-lg mt-4 ">
             <div className="flex items-center">
               <textarea
@@ -47,13 +50,20 @@ const Inicio = () => {
 
             <div className="bg-bgcard rounded-lg h-fit">
               <div className="flex justify-between p-4 items-center">
-                <p>Un gran presente que quiero mandar a mis mejores amigos, las mejores vacaciones vividas, los quiero mucho</p>
+                <p>
+                  Un gran presente que quiero mandar a mis mejores amigos, las
+                  mejores vacaciones vividas, los quiero mucho
+                </p>
                 <div className="text-lg flex gap-3 ml-3">
                   <BsHeart />
                   <BsSend />
                 </div>
               </div>
-              <img src={Logo} alt="" className="h-52 w-full rounded-lg object-cover"/>
+              <img
+                src={Logo}
+                alt=""
+                className="h-52 w-full rounded-lg object-cover"
+              />
             </div>
           </div>
 
@@ -68,29 +78,27 @@ const Inicio = () => {
 
             <div className="bg-bgcard rounded-lg h-fit">
               <div className="flex justify-between p-4 items-center">
-                <p>Un gran presente que quiero mandar a mis mejores amigos, las mejores vacaciones vividas, los quiero mucho</p>
+                <p>No Me gusta la hackaton, con todo respeto</p>
                 <div className="text-lg flex gap-3 ml-3">
                   <BsHeart />
                   <BsSend />
                 </div>
               </div>
-              <img src={Logo} alt="" className="h-52 w-full rounded-lg object-cover"/>
+              <img
+                src={Logo}
+                alt=""
+                className="h-52 w-full rounded-lg object-cover"
+              />
             </div>
           </div>
-
-         
-
-          
-
-          
-
         </div>
 
-        <img
-          src={Amigos}
-          alt=""
-          className="hidden md:block h-[450px] mt-5 object-cover w-full max-w-72"
-        />
+        <div className="hidden md:block h-[460px] mt-5 w-full max-w-72 text-textcard ">
+          <img src={Amigos} alt="" className="object-cover h-60 w-full" />
+          <div className=" flex justify-center mt-10 h-44 p-4 bg-bgcard rounded-md ">
+            <span className="text-2xl font-bold">Invitaciones</span>
+          </div>
+        </div>
       </div>
     </>
   );
