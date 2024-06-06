@@ -28,14 +28,18 @@ const Amigos = () => {
                 <span className="p-0.5 px-4 bg-[#b01f5f]">Anime</span>
                 <span className="p-0.5 px-4 bg-[#bd500b]">Fútbol</span>
               </div>
-              <div className="flex flex-col md:hidden">
-              <img src={Mascota} alt="" className="w-10 rounded-full self-center"/>
-                <span className="text-center">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Quis, veritatis!
+              <div className="flex flex-col md:hidden px-2">
+                <img
+                  src={Mascota}
+                  alt=""
+                  className="w-10 rounded-full self-center my-2"
+                />
+                <span className="text-center mb-3 ">
+                  Esta es una descripción específica que cada persona podrá
+                  colocar
                 </span>
-               
-                <button className=" text-sm p-1 px-5  rounded-lg text-white bg-bgpurplebutton">
+
+                <button className=" text-sm p-2 rounded-lg text-white bg-bgpurplebutton ">
                   Seguir
                 </button>
               </div>
