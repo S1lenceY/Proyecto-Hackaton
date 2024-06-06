@@ -47,6 +47,9 @@ const Perfil = () => {
               <span>
                 <b>3</b> seguidos
               </span>
+              <span>
+                <b>4</b> MVP
+              </span>
             </div>
             <button className="bg-loginbutton mb-7 md:mb-0 md:mt-2 mx-10 text-white px-10 font-bold py-1.5 rounded transition duration-200 ease-in-out hover:bg-loginbuttonhover focus:outline-none">
               Editar
@@ -91,8 +94,16 @@ const Perfil = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row mt-5 sm:mt-10 text-textcard items-center sm:items-start">
-          <div className="bg-bgcard p-4 rounded-md h-36 w-full max-w-48">
-            <span className="font-bold">Misiones Pendientes</span>
+          <div className="bg-bgcard p-4 text-center rounded-md h-[134px] w-full max-w-48">
+            <span className="font-bold">Logros Pendientes</span>
+
+              <div className="text-start p-2 flex flex-col gap-3 mt-1">
+                <span className="text-xs">Aprueba tu primera PC del ciclo...</span>
+                <div className="w-full rounded-full bg-slate-200 h-1 ">
+                  <div className="w-[20%] bg-bgpurplebutton h-1 rounded-full"></div>
+                </div>
+              </div>
+
           </div>
           <div className="mt-7 sm:mt-0 sm:ml-14 sm:pl-14 sm:border-l-2 border-bgperfilline w-full">
             <span className="text-lg font-bold">Ultima publicación</span>
