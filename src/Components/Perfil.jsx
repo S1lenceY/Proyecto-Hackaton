@@ -111,7 +111,7 @@ const Perfil = () => {
               <div className="flex items-center">
                 <textarea
                   placeholder="Tu feed está vacío, sube una publicación aquí"
-                  className="bg-transparent outline-none text-sm p-2 pb-0 w-full text-headertext resize-none"
+                  className="bg-transparent outline-none text-sm p-2 pb-0 w-full text-headertext resize-none scrollbar-none"
                 />
                 <div className="p-2 bg-bgpurplebutton rounded-full text-white">
                   <BsFillSendFill />

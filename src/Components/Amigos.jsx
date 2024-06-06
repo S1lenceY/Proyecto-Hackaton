@@ -19,7 +19,7 @@ const Amigos = () => {
       </div>
 
       <div className="flex w-full mt-5 gap-10 justify-center">
-        <div className="flex flex-col gap-8 w-full max-w-80 md:max-w-fit">
+        <div className="flex flex-col gap-8 w-full max-w-80 md:max-w-fit md:max-h-96 md:overflow-y-auto scrollbar-none">
 
           <div className="flex flex-col items-center gap-3 lg:items-start lg:gap-0 lg:flex-row bg-bgcard p-4 rounded-3xl">
             <img src={UserImage} alt="" className="w-32 md:w-16" />
@@ -46,8 +46,7 @@ const Amigos = () => {
               </div>
             </div>
           </div>
-
-          
+     
         </div>
 
         <div className=" flex-col bg-bgcard text-textcard p-5 w-full hidden md:flex rounded-3xl max-w-[525px] h-fit">

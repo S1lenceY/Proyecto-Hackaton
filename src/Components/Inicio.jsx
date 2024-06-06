@@ -27,7 +27,7 @@ const Inicio = () => {
       </div>
 
       <div className="flex mt-5 w-full h-full justify-evenly">
-        <div className="flex flex-col text-titlecolor w-full sm:max-w-[600px]  md:mr-10 md:max-h-[480px] md:overflow-y-auto">
+        <div className="flex flex-col text-titlecolor w-full sm:max-w-[600px] md:mr-10 md:max-h-[480px] md:overflow-y-auto scrollbar-none">
           <div className="flex flex-col bg-bgcard p-3 rounded-xl text-lg mt-4 ">
             <div className="flex items-center">
               <textarea
@@ -104,7 +104,7 @@ const Inicio = () => {
 
           <div className="shadow-md flex flex-col mt-10 p-4 bg-bgcard md:h-[180px]  md:rounded-md overflow-hidden md:w-full h-10 rounded-full w-10 hover:w-72 md:hover:w-full hover:h-[180px] hover:rounded-md">
             <span className="text-2xl font-bold text-center">Invitaciones</span>
-            <div className="mt-4 flex flex-col max-h-full overflow-y-auto">
+            <div className="mt-4 flex flex-col max-h-full overflow-y-auto scrollbar-none">
 
               <div className="flex flex-col mb-5">
                 <div className="flex items-center justify-around">
