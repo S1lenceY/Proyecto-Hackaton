@@ -4,16 +4,6 @@
       "id": 1,
       "nombre": "David",
       "password": "1234"
-    },
-    {
-      "usuario": "",
-      "password": "",
-      "id": 2
-    },
-    {
-      "usuario": "",
-      "password": "",
-      "id": 3
     }
   ],
   "Users": [
@@ -32,20 +22,34 @@
         "Insignia2"
       ],
       "utpet": true
+    }
+  ],
+  "Publipost": [
+    {
+      "id": 0,
+      "idUsuario": 1,
+      "text": "Sigo aqui",
+      "imgLink": null,
+      "Tiempo": "2024-06-07T12:00:00"
+    }
+  ],
+  "Invita": [
+    {
+      "id": 0,
+      "status": true,
+      "idUsuario": 1,
+      "idGrupo": 123
     },
     {
-      "idUsuario": 123,
-      "nombre": "da",
-      "descripcion": "1",
-      "etiquetas": [
-        "ja",
-        "ja"
-      ],
-      "insignias": [
-        "da",
-        "da"
-      ],
-      "utpet": true,
+      "status": true,
+      "idUsuario": 1,
+      "idGrupo": 1234,
+      "id": 1
+    },
+    {
+      "status": false,
+      "idUsuario": 1,
+      "idGrupo": 123,
       "id": 2
     }
   ]

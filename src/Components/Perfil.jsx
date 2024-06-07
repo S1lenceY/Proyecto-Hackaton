@@ -7,6 +7,7 @@ import { BsFillSendFill, BsTypeItalic } from "react-icons/bs";
 import { AiOutlinePicture, AiOutlineBold } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../Assets/Logo.webp";
+import { useLoaderData } from "react-router-dom";
 
 const Perfil = () => {
   const perfil = [
@@ -30,6 +31,7 @@ const Perfil = () => {
 
   // Acceder al primer objeto en el array de perfil para que aparezcan datos
   const userProfile = perfil[0];
+  const idUsuario = localStorage.getItem("userID") || 1;
 
   //Mostrar y ocultar insignias
   const [showAll, setShowAll] = useState(false);
@@ -69,7 +71,7 @@ const Perfil = () => {
 
   const handleSave = async () => {
     const data = {
-      idUsuario: 123, // Asume que este valor es estático o lo obtienes de otra parte
+      idUsuario: idUsuario, // Asume que este valor es estático o lo obtienes de otra parte
       nombre: formData.nombre,
       descripcion: formData.descripcion,
       etiquetas: formData.tags.split(",").map((tag) => tag.trim()),

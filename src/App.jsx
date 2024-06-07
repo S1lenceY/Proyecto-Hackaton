@@ -22,6 +22,7 @@ import Amigos from "./Components/Amigos";
 import Grupos from "./Components/Grupos";
 import Perfil from "./Components/Perfil";
 import Recursos from "./Components/Recursos";
+//import getPerfilData from "./Path/Apis.jsx/getPerfilData";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
           },
           {
             path: PERFIL,
+            //loader: getPerfilData,
             element: <Perfil />,
           },
           ,
