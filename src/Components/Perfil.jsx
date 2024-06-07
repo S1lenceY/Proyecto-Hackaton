@@ -50,6 +50,54 @@ const Perfil = () => {
     setShowEditModal(false);
   };
 
+  // Editar Perfil
+  const [formData, setFormData] = useState({
+    nombre: "",
+    descripcion: "",
+    tags: "",
+    insignias: "",
+    utpet: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSave = async () => {
+    const data = {
+      idUsuario: 123, // Asume que este valor es estático o lo obtienes de otra parte
+      nombre: formData.nombre,
+      descripcion: formData.descripcion,
+      etiquetas: formData.tags.split(",").map((tag) => tag.trim()),
+      insignias: formData.insignias
+        .split(",")
+        .map((insignia) => insignia.trim()),
+      utpet: formData.utpet,
+    };
+
+    try {
+      await axios.post("http://localhost:3000/Users", data);
+
+      // Actualiza las variables de estado correspondientes
+      setNombreCompleto(formData.nombre);
+      setInsignias(data.insignias);
+
+      setShowEditModal(false);
+      console.log("Datos Guardados con éxito");
+    } catch (error) {
+      console.error("Error al guardar los datos:", error);
+    }
+  };
+
+  //Actualizar valores
+  // Extraer y manejar nombreCompleto e insignias como estados individuales
+  const [nombreCompleto, setNombreCompleto] = useState(perfil[0].nombreCompleto);
+  const [insignias, setInsignias] = useState(perfil[0].insignias);
+
   return (
     <>
       <div className="flex flex-col">
@@ -61,7 +109,7 @@ const Perfil = () => {
           />
           <div className="flex flex-col justify-center items-center lg:flex-row">
             <div className="flex flex-col items-center lg:items-start text-3xl px-10 sm:pl-5 sm:pr-10 lg:px-10 lg:pl-5">
-              <span>{userProfile.nombreCompleto}</span>
+              <span>{nombreCompleto}</span>
               <span className="text-lg font-bold">
                 {userProfile.codigoAlumno}
               </span>
@@ -92,7 +140,7 @@ const Perfil = () => {
         <div className="flex items-center sm:items-start flex-col lg:pl-72 text-bgtexttitle py-5 sm:py-3 ml-3 relative">
           <div className="flex items-center gap-2">
             <span className="text-lg font-bold">Insignias Destacadas</span>
-            {userProfile.insignias.length > 3 && !showAll && (
+            {insignias.length > 3 && !showAll && (
               <button onClick={handleToggle} className="text-bgtexttitle">
                 <span className="text-lg">&#9660;</span>
                 {/* Flecha hacia abajo */}
@@ -108,8 +156,8 @@ const Perfil = () => {
 
           {/* Añadir el .map de las insignias */}
           <div className="grid grid-cols-2 sm:grid-cols-3 mt-3 gap-5">
-            {userProfile.insignias
-              .slice(0, showAll ? userProfile.insignias.length : 3)
+            {insignias
+              .slice(0, showAll ? insignias.length : 3)
               .map((insignia, index) => (
                 <div
                   key={index}
@@ -195,16 +243,16 @@ const Perfil = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               onClick={(e) => e.stopPropagation()}
-              className="flex flex-col md:flex-row w-full max-w-72 md:max-w-fit h-fit bg-bgcard text-textcard"
+              className="flex flex-col md:flex-row w-full max-w-72 md:max-w-fit h-fit bg-bgcard text-textcard mt-20 md:ml-20 md:mt-0"
             >
               <div className="relative">
                 <img
                   src={Logo}
                   alt=""
-                  className=" w-72 md:w-80 h-40 md:h-full object-cover"
+                  className=" w-72 md:w-96 h-40 md:h-full object-cover"
                 />
                 <input
-                  className="outline-none border text-textcard text-center bg-bgcard w-32 rounded-md p-1 px-2 absolute bottom-3 left-1/4 md:left-[15%] focus:ring-2 ring-slate-500"
+                  className="outline-none border text-textcard text-center bg-bgcard w-32 rounded-md p-1 px-2 absolute bottom-3 left-1/4 md:left-[25%] focus:ring-2 ring-slate-500"
                   placeholder="Insertar URL"
                 />
               </div>
@@ -214,27 +262,63 @@ const Perfil = () => {
                     Mi Perfil
                   </span>
                   <div className="flex flex-col gap-3 mt-2">
-
                     <div className="flex justify-between bg-inputbackground border border-bordercolor rounded p-px px-2 items-center text-sm h-9">
                       <span className="font-bold">Apodo o nombre</span>
                       <input
                         type="text"
                         placeholder="Nombre"
-                        className="bg-transparent max-w-14 outline-none"
+                        className="bg-transparent max-w-14 outline-none text-end"
+                        name="nombre"
+                        value={formData.nombre}
+                        onChange={handleChange}
                       />
                     </div>
 
                     <div className="flex justify-between bg-inputbackground border border-bordercolor rounded p-px px-2 items-center text-sm h-9">
-                      <span className="font-bold">Apodo o nombre</span>
+                      <span className="font-bold">Descripción</span>
                       <input
                         type="text"
-                        placeholder="Nombre"
-                        className="bg-transparent max-w-14 outline-none"
+                        placeholder="Descripción"
+                        className="bg-transparent w-20 text-end outline-none"
+                        name="descripcion"
+                        value={formData.descripcion}
+                        onChange={handleChange}
                       />
                     </div>
-
+                    <div className="flex justify-between bg-inputbackground border border-bordercolor rounded p-px px-2 items-center text-sm h-9">
+                      <span className="font-bold">Tags a mostrar</span>
+                      <input
+                        type="text"
+                        placeholder="Anime"
+                        className="bg-transparent max-w-14 outline-none text-end"
+                        name="tags"
+                        value={formData.tags}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="flex justify-between bg-inputbackground border border-bordercolor rounded p-px px-2 items-center text-sm h-9">
+                      <span className="font-bold">Insignias a mostrar</span>
+                      <input
+                        type="text"
+                        placeholder="Insignia"
+                        className="bg-transparent max-w-14 outline-none text-end"
+                        name="insignias"
+                        value={formData.insignias}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="flex justify-between bg-inputbackground border border-bordercolor rounded p-px px-2 items-center text-sm h-9">
+                      <span className="font-bold">Mostrar UTPET</span>
+                      <input
+                        type="checkbox"
+                        className="bg-transparent max-w-14 outline-none"
+                        name="utpet"
+                        checked={formData.utpet}
+                        onChange={handleChange}
+                      />
+                    </div>
                   </div>
-                  <div className="bg-loginbutton cursor-pointer self-end px-4 w-fit mt-3  text-white font-bold text-sm py-1.5 rounded transition duration-200 ease-in-out hover:bg-loginbuttonhover focus:outline-none">
+                  <div className="bg-loginbutton cursor-pointer self-end px-4 w-fit mt-3  text-white font-bold text-sm py-1.5 rounded transition duration-200 ease-in-out hover:bg-loginbuttonhover focus:outline-none" onClick={handleSave}>
                     Guardar
                   </div>
                 </div>

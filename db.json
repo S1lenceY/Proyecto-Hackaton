@@ -15,5 +15,38 @@
       "password": "",
       "id": 3
     }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "idUsuario": 1,
+      "nombre": "Juan Pérez",
+      "descripcion": "Estudiante de Ingeniería de Software",
+      "etiquetas": [
+        "Programación",
+        "Desarrollo Web",
+        "Java"
+      ],
+      "insignias": [
+        "Insignia1",
+        "Insignia2"
+      ],
+      "utpet": true
+    },
+    {
+      "idUsuario": 123,
+      "nombre": "da",
+      "descripcion": "1",
+      "etiquetas": [
+        "ja",
+        "ja"
+      ],
+      "insignias": [
+        "da",
+        "da"
+      ],
+      "utpet": true,
+      "id": 2
+    }
   ]
 }
