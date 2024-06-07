@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { IoIosMenu } from "react-icons/io";
 import { FiArrowLeft } from "react-icons/fi";
-import { BiDish } from "react-icons/bi";
-import { LuUserCircle2 } from "react-icons/lu";
+import { LuUserCircle2, LuFiles } from "react-icons/lu";
 import { GrGroup } from "react-icons/gr";
 import { GoHome, GoPeople} from "react-icons/go";
 import ThemeButton from "../Utils/ThemeButton";
 import Header from "./Header";
 import { Link } from "react-router-dom";
-import { INICIO, AMIGOS, GRUPOS, PERFIL } from "../../Path/Paths";
+import { INICIO, AMIGOS, GRUPOS, PERFIL, RECURSOS } from "../../Path/Paths";
 import User from "../../Assets/Logo.webp";
 
 const Sidebar = () => {
@@ -111,6 +110,21 @@ const Sidebar = () => {
             <span className=" text-xs">Perfil</span>
           </div>
         </Link>
+        <Link
+          id={RECURSOS}
+          to={RECURSOS}
+          className={` flex flex-col justify-center border-l-4 h-20 gap-2 ${
+            selectedLink === RECURSOS
+              ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
+              : "text-white border-l-backgroundsidebar"
+          }`}
+          onClick={() => handleLinkClick(RECURSOS)}
+        >
+          <div className="flex flex-col gap-2 w-20 items-center">
+            <LuFiles  className="text-2xl" />
+            <span className=" text-xs">Recursos</span>
+          </div>
+        </Link>
       </div>
 
       {/* Div adicional que cubre el contenido de la página */}
@@ -147,7 +161,7 @@ const Sidebar = () => {
         <div className="pt-7">
           <Link
             to={INICIO}
-            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-10 ${
+            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-6 ${
               selectedLink === INICIO
                 ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
                 : "text-white border-l-backgroundsidebar "
@@ -162,7 +176,7 @@ const Sidebar = () => {
           </Link>
           <Link
             to={AMIGOS}
-            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-10 ${
+            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-6 ${
               selectedLink === AMIGOS
                 ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
                 : "text-white border-l-backgroundsidebar"
@@ -177,7 +191,7 @@ const Sidebar = () => {
           </Link>
           <Link
             to={GRUPOS}
-            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-10 ${
+            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-6 ${
               selectedLink === GRUPOS
                 ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
                 : "text-white border-l-backgroundsidebar"
@@ -192,7 +206,7 @@ const Sidebar = () => {
           </Link>
           <Link
             to={PERFIL}
-            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-10 ${
+            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-6 ${
               selectedLink === PERFIL
                 ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
                 : "text-white border-l-backgroundsidebar"
@@ -204,6 +218,21 @@ const Sidebar = () => {
           >
             <LuUserCircle2  className="text-2xl" />
             <span className="text-sm">Perfil</span>
+          </Link>
+          <Link
+            to={RECURSOS}
+            className={` flex items-center py-4 px-5 border-l-4 gap-10 mb-7 ${
+              selectedLink === RECURSOS
+                ? "bg-background text-textsidebar border-l-4 border-l-sidebarlinecolor"
+                : "text-white border-l-backgroundsidebar"
+            }`}
+            onClick={() => {
+              handleLinkClick(RECURSOS);
+              handleBackClick();
+            }}
+          >
+            <LuFiles  className="text-2xl" />
+            <span className="text-sm">Recursos</span>
           </Link>
 
           <div className="flex justify-center items-center">

@@ -6,79 +6,9 @@
       "password": "1234"
     },
     {
-      "nombre": "jhomt",
-      "password": "jhomt",
+      "usuario": "",
+      "password": "",
       "id": 2
-    },
-    {
-      "nombre": "jhomt",
-      "password": "jhomt",
-      "id": 3
-    },
-    {
-      "nombre": "",
-      "password": "",
-      "id": 4
-    },
-    {
-      "nombre": "",
-      "password": "",
-      "id": 5
-    },
-    {
-      "nombre": "",
-      "password": "",
-      "id": 6
-    },
-    {
-      "nombre": "",
-      "password": "",
-      "id": 7
-    },
-    {
-      "nombre": "",
-      "password": "",
-      "id": 8
-    },
-    {
-      "nombre": "1",
-      "password": "1",
-      "id": 9
-    },
-    {
-      "nombre": "1",
-      "password": "1",
-      "id": 10
-    },
-    {
-      "nombre": "",
-      "password": "",
-      "id": 11
-    },
-    {
-      "nombre": "1",
-      "password": "1",
-      "id": 12
-    },
-    {
-      "nombre": "",
-      "password": "",
-      "id": 13
-    },
-    {
-      "nombre": "",
-      "password": "",
-      "id": 14
-    },
-    {
-      "nombre": "",
-      "password": "",
-      "id": 15
-    },
-    {
-      "nombre": "",
-      "password": "",
-      "id": 16
     }
   ],
   "detallecompra": [

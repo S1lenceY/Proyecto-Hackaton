@@ -7,4 +7,5 @@ export const INICIO = "/UTPilot/Main/inicio";
 export const AMIGOS = "/UTPilot/Main/amigos";
 export const GRUPOS = "/UTPilot/Main/grupos";
 export const PERFIL = "/UTPilot/Main/perfil";
+export const RECURSOS = "/UTPilot/Main/recursos";
 

@@ -11,6 +11,7 @@ import {
   AMIGOS,
   GRUPOS,
   PERFIL,
+  RECURSOS,
 } from "./Path/Paths";
 import Chat from "./Components/Chat";
 import Login from "./Components/Login";
@@ -20,6 +21,7 @@ import Inicio from "./Components/Inicio";
 import Amigos from "./Components/Amigos";
 import Grupos from "./Components/Grupos";
 import Perfil from "./Components/Perfil";
+import Recursos from "./Components/Recursos";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,11 @@ const router = createBrowserRouter([
           {
             path: PERFIL,
             element: <Perfil />,
+          },
+          ,
+          {
+            path: RECURSOS,
+            element: <Recursos />,
           },
         ],
       },

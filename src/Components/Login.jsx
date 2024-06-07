@@ -32,7 +32,7 @@ const Login = () => {
   const fixedToken = "123"
 
   const [formData, setFormData] = useState({
-    nombre: "",
+    usuario: "",
     password: "",
   });
 
@@ -49,7 +49,7 @@ const Login = () => {
     try {
       // Enviar los datos al backend para autenticación
       const response = await axios.post("http://localhost:3000/login", {
-        nombre: formData.nombre,
+        usuario: formData.usuario,
         password: formData.password,
       });
 
@@ -99,7 +99,7 @@ const Login = () => {
                   placeholder="Código o correo UTP"
                   className="p-2 text-sm text-titlecolor bg-inputbackground rounded w-full border border-bordercolor focus:outline-none focus:border-hoverbordercolor hover:border-hoverbordercolor peer"
                   name="nombre" //Añadido para manejar con AXIOS
-                  value={formData.nombre}
+                  value={formData.usuario}
                   onChange={handleChange}
                 />
                 <HiOutlineMail className="absolute right-2 top-1.5 text-2xl text-bordercolor peer-hover:text-hoverbordercolor peer-focus:text-hoverbordercolor" />
