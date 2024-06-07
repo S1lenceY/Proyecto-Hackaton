@@ -46,7 +46,8 @@ export default {
         bginsignia: "rgba(var(--bginsignia))",
         bgperfilline: "rgba(var(--bgperfilline))",
         bgpurplebutton: "rgba(var(--bgpurplebutton))",
-        bginsigniaamigos: "rgba(var(--bginsigniaamigos))"
+        bginsigniaamigos: "rgba(var(--bginsigniaamigos))",
+        bgbordermodal: "rgba(var(--bgbordermodal))",
       },
     },
   },
