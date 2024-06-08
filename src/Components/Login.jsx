@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import withSplashScreen from "../Loader/withSplashScreen";
 import LogoLogin from "../Assets/LogoLogin.png";
-import LogoUTP from "../Assets/LogoUTP.png";
+import LogoUTP from "../Assets/LogoCollaborate.png";
 import { HiOutlineEye, HiOutlineEyeOff, HiOutlineMail } from "react-icons/hi";
 import { useAuthContext } from "../Auth/authContext";
 import axios from "axios";
@@ -75,13 +75,13 @@ const Login = () => {
           />
         </div>
         <div className="flex flex-col w-[380px] md:p-2 p-10">
-          <div className="flex h-9 w-[120px]">
+          <div className="flex h-9 w-[270px]">
             <img src={LogoUTP} alt="" />
           </div>
           <div className="mt-5">
             <div className="mb-4">
               <p className=" text-2xl text-titlecolor font-semibold">
-                La nueva experiencia digital de marketplace
+                La nueva experiencia digital de comunidad
               </p>
               <span className=" text-xl font-light text-subtitlecolor">
                 Agradable, facil y dinámica
@@ -98,7 +98,7 @@ const Login = () => {
                   type="text"
                   placeholder="Código o correo UTP"
                   className="p-2 text-sm text-titlecolor bg-inputbackground rounded w-full border border-bordercolor focus:outline-none focus:border-hoverbordercolor hover:border-hoverbordercolor peer"
-                  name="nombre" //Añadido para manejar con AXIOS
+                  name="usuario" //Añadido para manejar con AXIOS
                   value={formData.usuario}
                   onChange={handleChange}
                 />

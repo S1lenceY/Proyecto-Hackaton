@@ -4,6 +4,16 @@
       "id": 1,
       "nombre": "David",
       "password": "1234"
+    },
+    {
+      "usuario": "asd",
+      "password": "asd",
+      "id": 2
+    },
+    {
+      "usuario": "U21209578",
+      "password": "IsthisPas123",
+      "id": 3
     }
   ],
   "Users": [
@@ -31,6 +41,41 @@
       "text": "Sigo aqui",
       "imgLink": null,
       "Tiempo": "2024-06-07T12:00:00"
+    },
+    {
+      "idUsuario": 1,
+      "text": "adsasd",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T04:16:04",
+      "id": 1
+    },
+    {
+      "idUsuario": 1,
+      "text": "asdasd",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T04:16:08",
+      "id": 2
+    },
+    {
+      "idUsuario": 1,
+      "text": "Que abuso\n",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T04:16:12",
+      "id": 3
+    },
+    {
+      "idUsuario": 1,
+      "text": "Holi Boli",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T04:16:16",
+      "id": 4
+    },
+    {
+      "idUsuario": 1,
+      "text": "Estoy cansado viejo",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T04:17:21",
+      "id": 5
     }
   ],
   "Invita": [
