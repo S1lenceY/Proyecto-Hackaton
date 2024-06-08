@@ -14,6 +14,21 @@
       "usuario": "U21209578",
       "password": "IsthisPas123",
       "id": 3
+    },
+    {
+      "usuario": "",
+      "password": "1234",
+      "id": 4
+    },
+    {
+      "usuario": "",
+      "password": "1234",
+      "id": 5
+    },
+    {
+      "usuario": "",
+      "password": "1234",
+      "id": 6
     }
   ],
   "Users": [
@@ -76,6 +91,13 @@
       "imgLink": null,
       "Tiempo": "2024-06-08T04:17:21",
       "id": 5
+    },
+    {
+      "idUsuario": 1,
+      "text": "qeawdasdas",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T15:43:58",
+      "id": 6
     }
   ],
   "Invita": [
