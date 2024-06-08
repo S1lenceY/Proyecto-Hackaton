@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import LogoUTP from "../../Assets/LogoUTP.png";
+import LogoUTP from "../../Assets/LogoCollaborateW.png";
 import { IoIosMenu, IoIosArrowDown } from "react-icons/io";
 import { AiOutlineSearch, AiOutlineDollar } from "react-icons/ai";
 import Dropdown from "./Dropdown";
