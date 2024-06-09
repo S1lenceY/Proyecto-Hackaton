@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -23,31 +23,21 @@ const Grupos = () => {
     { idCurso: 4, nombreCurso: "Aprendizaje Automático", horario: "Jueves: 14:00 - 16:00" },
   ];
 
-  const initialGrupos = [
-    {
-      idgrupo: 0,
-      nombreGrupo: "Grupo 1",
-      nombreTarea: "Tarea 1",
-      horario: "Horario 1",
-      nombreCurso: "Curso 1",
-      descripcion: "Descripción del Grupo 1",
-      usuarioList: [
-        { nombre: "Usuario 1", rol: "Rol 1" },
-        { nombre: "Usuario 2", rol: "Rol 2" },
-      ],
-    },
-    {
-      idgrupo: 1,
-      nombreGrupo: "Grupo 2",
-      nombreTarea: "Tarea 2",
-      horario: "Horario 2",
-      nombreCurso: "Curso 2",
-      descripcion: "Descripción del Grupo 2",
-      usuarioList: [{ nombre: "Usuario 2", rol: "Rol 2" }],
-    },
-  ];
+  const id = localStorage.getItem("userID");
+  const [grupos, setGrupos] = useState([]);
 
-  const [grupos, setGrupos] = useState(initialGrupos);
+  useEffect(() => {
+    const fetchGrupos = async () => {
+      try {
+        const response = await axios.get(`https://apicollaboration-production.up.railway.app/api/v1/Grupos/${id}`);
+        setGrupos(response.data);
+      } catch (error) {
+        console.error('Error al obtener los datos:', error);
+      }
+    };
+    fetchGrupos();
+  }, [id]);
+
   const [showGroup, setShowGroup] = useState(false);
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [showEditModal, setShowEditModal] = useState(false);
