@@ -54,7 +54,19 @@ const Login = () => {
       });
 
       const idUsuario = response.data
-      
+
+      const response2 = await axios.get(`https://apicollaboration-production.up.railway.app/api/v1/perfil/${idUsuario}`);
+
+      const nombreApellido = response2.data.nombreApellido
+      const codigoUniversitario = response2.data.codigoUniversitario
+      const imagen = response2.data.linkImagen
+
+      // Guardar idUsuario en el localStorage
+      localStorage.setItem("userID", idUsuario);
+      localStorage.setItem("nombreApellido", nombreApellido);
+      localStorage.setItem("codigo", codigoUniversitario);
+      localStorage.setItem("imagen", imagen);
+
       login(idUsuario);
       AxiosHeader();
       

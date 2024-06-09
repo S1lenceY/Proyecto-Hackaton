@@ -8,7 +8,6 @@ import ThemeButton from "../Utils/ThemeButton";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import { INICIO, AMIGOS, GRUPOS, PERFIL, RECURSOS } from "../../Path/Paths";
-import User from "../../Assets/Logo.webp";
 
 const Sidebar = () => {
   // Estado para controlar la visibilidad del sidebar
@@ -147,13 +146,13 @@ const Sidebar = () => {
           <FiArrowLeft className="m-4" />
         </div>
         <div className="flex items-center gap-3 pb-4 pl-6 border-b border-b-divisorsidebar">
-          <img src={User} className="rounded-full h-10 w-10" />
+          <img src={localStorage.getItem("imagen")} className="rounded-full h-10 w-10" />
           <div className="flex flex-col py-4">
             <span className="text-sm font-semibold">
-              ¡Hola {localStorage.getItem("usuario")}!
+              ¡Hola {localStorage.getItem("nombreApellido")}!
             </span>
             <span className="text-xs">
-              {localStorage.getItem("rol")}@utp.edu.pe
+              {localStorage.getItem("codigo")}@utp.edu.pe
             </span>
           </div>
         </div>

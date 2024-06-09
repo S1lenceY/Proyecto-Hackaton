@@ -11,7 +11,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Perfil = () => {
 
-  const id = 1;
+  const id = localStorage.getItem("userID");
 
   const [data, setData] = useState({});
 
