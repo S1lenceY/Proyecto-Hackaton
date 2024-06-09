@@ -117,6 +117,26 @@ const Grupos = () => {
     }
   };
   
+  const [showMVP, setShowMVP] = useState(false);
+
+  const handleButtonMVP = () => {
+    setShowMVP(true);
+  };
+
+  const handleButtonCloseMVP = () => {
+    setShowMVP(false);
+  };
+
+  const handleMVPClick = () => {
+    if (selectedGroup) {
+      const updatedGrupos = grupos.filter(
+        (group) => group.idgrupo !== selectedGroup.idgrupo
+      );
+      setGrupos(updatedGrupos);
+      setShowGroup(false);
+      setShowMVP(false);
+    }
+  }
 
   return (
     <>
@@ -193,7 +213,10 @@ const Grupos = () => {
                   <button className="w-full group group-hover:before:duration-500 group-hover:after:duration-1000 after:duration-500 hover:border-sky-300 duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-2 hover:before:top-8 hover:before:right-16 hover:after:scale-150 hover:after:blur-none hover:before:-bottom-8 hover:before:blur-none hover:bg-sky-300 hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-sky-900 relative bg-sky-800 h-12 border text-left p-3 text-gray-50 text-base font-bold rounded-lg overflow-hidden before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-sky-400 before:rounded-full before:blur-lg after:absolute after:z-10 after:w-20 after:h-20 after:content[''] after:bg-cyan-600 after:right-8 after:top-3 after:rounded-full after:blur">
                     Recursos
                   </button>
-                  <button className="group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-rose-300 hover:before:[box-shadow:_20px_20px_20px_30px_#a21caf] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-rose-300 relative bg-neutral-800 h-12 w-full border text-left p-3 text-gray-50 text-base font-bold rounded-lg overflow-hidden before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-violet-500 before:rounded-full before:blur-lg after:absolute after:z-10 after:w-20 after:h-20 after:content[''] after:bg-rose-300 after:right-8 after:top-3 after:rounded-full after:blur-lg">
+                  <button 
+                  className="group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-rose-300 hover:before:[box-shadow:_20px_20px_20px_30px_#a21caf] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-rose-300 relative bg-neutral-800 h-12 w-full border text-left p-3 text-gray-50 text-base font-bold rounded-lg overflow-hidden before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-violet-500 before:rounded-full before:blur-lg after:absolute after:z-10 after:w-20 after:h-20 after:content[''] after:bg-rose-300 after:right-8 after:top-3 after:rounded-full after:blur-lg"
+                  onClick={handleButtonMVP}
+                  >
                     Finalizar
                   </button>
                 </div>
@@ -348,6 +371,60 @@ const Grupos = () => {
                   >
                     Guardar
                   </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showMVP && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            onClick={handleButtonCloseMVP}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black bg-opacity-20 backdrop-blur-sm flex justify-center items-center overflow-y-auto z-20"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              onClick={(e) => e.stopPropagation()}
+              className="flex flex-col md:flex-row w-full max-w-72 md:max-w-fit h-fit bg-bgcard text-textcard mt-20 md:ml-20 md:mt-0 "
+            >
+              <div className="bg-bgbordermodal p-5 w-full ">
+                <div className="bg-bgcard p-4 flex flex-col items-center gap-5">
+                  <span className="font-bold text-2xl text-center">
+                    Felicidades por presentar el trabajo
+                  </span>
+
+                  <div className="flex flex-wrap gap-5 justify-center max-h-72 max-w-[600px] overflow-auto">
+                    {selectedGroup.usuarioList.map((usuario, index) => (
+                      <div
+                        className="bg-bgcardlabel flex flex-col items-center p-4 px-6 rounded-lg gap-1 cursor-pointer hover:opacity-80"
+                        key={index}
+                        onClick={handleMVPClick}
+                      >
+                        <img src={UserImage} alt="" className="w-16" />
+                        <span>{usuario.nombre}</span>
+                        <span className="p-0.5 px-3 bg-[#b01f5f] text-xs text-white">
+                          {usuario.rol}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-col items-center text-center">
+                    <p className="font-bold text-lg">
+                      ¡Vota por el MVP del equipo!
+                    </p>
+                    <p>
+                      Reconoce el compañero que se aseguró que todo saliera
+                      perfecto.
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>

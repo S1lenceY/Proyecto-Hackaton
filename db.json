@@ -122,6 +122,16 @@
         "vacío"
       ],
       "id": 1
+    },
+    {
+      "nombre": "UTPET",
+      "nombreTarea": "S3",
+      "idCurso": 4,
+      "descripcion": "Este es UTPET",
+      "idsUsuarios": [
+        3
+      ],
+      "id": 2
     }
   ]
 }

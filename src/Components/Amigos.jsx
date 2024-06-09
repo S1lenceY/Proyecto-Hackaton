@@ -2,29 +2,53 @@ import React, { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import UserImage from "../Assets/User.png";
 import Mascota from "../Assets/mascota1.jpg";
+import axios from "axios";
 
 const Amigos = () => {
-  const recomendado = [
-    {
-      name: "Juan Pérez",
-      label: ["Programación", "Java"],
-      linkImagen: "http://ejemplo.com/imagen.jpg",
-      idUsuario: 1,
-      insignia: ["Insignia1", "Insignia2"],
-      descripcion: "Estudiante de Ingeniería de Software",
-      numeroMVP: 3,
-    },
-    {
-      name: "Juan Ramon",
-      label: ["Anime", "Futbol"],
-      linkImagen: "http://ejemplo.com/imagen.jpg",
-      idUsuario: 2,
-      insignia: ["Ciclo Perfecto", "Ciclo Inperfecto"],
-      descripcion: "Estudiante de Psicología",
-      numeroMVP: 5,
-    },
-  ];
 
+  const id = localStorage.getItem("userID");
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchAmigos = async () => {
+      try {
+        const response = await axios.get(`https://apicollaboration-production.up.railway.app/api/v1/amigos/${id}`);
+        // Mapear los datos recibidos de la API al formato deseado
+        const amigosFromAPI = response.data;
+
+        const availableUser = [
+          { idUser: 1, nombre: "Marí García", descripcion: "Estudiante de Ingeniería de Sistemas e Informática con pasión por la informática." },
+          { idUser: 2, nombre: "Juan Perez", descripcion: "Estudiante apasionado por la inteligencia artificial." },
+          { idUser: 3, nombre: "Carlos Ramírez", descripcion: "Estudiante de la carrera de Psicología" },
+          { idUser: 4, nombre: "Ana López", descripcion: "Estudiante con interés en el desarrollo de software - backend." },
+        ];
+  
+        const recomended = amigosFromAPI.map(amigo => {
+          // Buscar el usuario correspondiente en availableUser
+          const user = availableUser.find(u => u.nombre === amigo.nombre);
+          
+          // Construir el objeto recomendado con la información correspondiente
+          return {
+            name: amigo.nombre,
+            label: amigo.nombreEtiquetas || [],
+            linkImagen: amigo.linkImagen,
+            idUsuario: user ? user.idUser : null,
+            insignia: amigo.nombreInsignias || [],
+            descripcion: user ? user.descripcion : "",
+            numeroMVP: amigo.nroMvp || 0,
+          };
+        });
+  
+        setData(recomended);
+      } catch (error) {
+        console.error('Error al obtener los datos:', error);
+      }
+    };
+  
+    fetchAmigos();
+  });
+
+  const recomendado = data;
   const [selectedUser, setSelectedUser] = useState(recomendado[0]);
 
   return (
@@ -81,22 +105,23 @@ const Amigos = () => {
             <img src={UserImage} alt="" className="w-32 h-32" />
             <div className="flex flex-col ml-5 w-full">
               <div className="flex items-center justify-between">
-                <span className="text-2xl font-bold">{selectedUser.name}</span>
+                <span className="text-2xl font-bold">{selectedUser && selectedUser.name}</span>
                 <button className="text-sm p-1 px-3 lg:px-5 ml-1 lg:mr-4 rounded-lg text-white bg-bgpurplebutton">
                   Seguir
                 </button>
               </div>
 
               <div className="mt-2 flex flex-col gap-3">
-                <p className="lg:pr-4">{selectedUser.descripcion}</p>
+                <p className="lg:pr-4">{selectedUser && selectedUser.descripcion}</p>
                 <div className="flex flex-col lg:flex-row justify-between">
-                  <div className="flex gap-2 text-xs text-white items-center">
-                    {selectedUser.label.map((label, labelIndex) => (
-                      <span key={labelIndex} className="p-0.5 px-4 bg-[#b01f5f]">{label}</span>
+                <div className="flex flex-col gap-2 text-xs text-white items-center">
+                  {selectedUser && selectedUser.label && selectedUser.label.map((label, labelIndex) => (
+                    <span key={labelIndex} className="p-0.5 px-4 bg-[#b01f5f]">{label}</span>
                     ))}
-                  </div>
+                </div>
+
                   <span className="text-bgpurplebutton text-sm lg:mx-4 self-end mt-2 lg:mt-0">
-                    <b>{selectedUser.numeroMVP}</b> MVP
+                    <b>{selectedUser && selectedUser.numeroMVP}</b> MVP
                   </span>
                 </div>
               </div>
@@ -104,11 +129,11 @@ const Amigos = () => {
           </div>
           <div className="flex mt-5 justify-between">
             <div className="flex flex-col w-full max-w-60 ">
-              {selectedUser.insignia.map((badge, badgeIndex) => (
+              {selectedUser && selectedUser.insignia && selectedUser.insignia.map((badge, badgeIndex) => (
                 <div key={badgeIndex} className="p-1 bg-bginsigniaamigos rounded-full px-10 mb-3 font-bold">
                   <span>{badge}</span>
-                </div>
-              ))}
+                  </div>
+                ))}
             </div>
 
             <div className="flex items-center relative ml-10 lg:mr-4">
