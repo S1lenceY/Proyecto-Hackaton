@@ -10,7 +10,6 @@ import Logo from "../Assets/Logo.webp";
 import { useLoaderData } from "react-router-dom";
 
 const Perfil = () => {
-
   const id = localStorage.getItem("userID");
 
   const [data, setData] = useState({});
@@ -18,29 +17,31 @@ const Perfil = () => {
   useEffect(() => {
     const fetchPerfil = async () => {
       try {
-        const response = await axios.get(`https://apicollaboration-production.up.railway.app/api/v1/perfil/${id}`);
+        const response = await axios.get(
+          `https://apicollaboration-production.up.railway.app/api/v1/perfil/${id}`
+        );
         setData(response.data);
       } catch (error) {
-        console.error('Error al obtener los datos:', error);
+        console.error("Error al obtener los datos:", error);
       }
     };
-  
+
     fetchPerfil();
   }, []);
 
   const nombreInsignias = data.nombreInsignias;
   const publicaciones = data.publicaciones;
-  
-  var insigniasArray = []
-  
+
+  var insigniasArray = [];
+
   // Verificar si nombreInsignias existe y no es null
-  if (nombreInsignias && typeof nombreInsignias === 'object') {
+  if (nombreInsignias && typeof nombreInsignias === "object") {
     // Convertir el objeto en un array
     insigniasArray = Object.values(nombreInsignias);
   } else {
-    console.log('nombreInsignias no está definido o es null');
+    console.log("nombreInsignias no está definido o es null");
   }
-  
+
   // Verificar si publicaciones existe y no es null
   if (publicaciones && publicaciones.length > 0) {
     // Acceder a la primera publicación
@@ -50,12 +51,12 @@ const Perfil = () => {
     var nombrePublicador = primeraPublicacion.nombrePublicador;
     var nroInteracciones = primeraPublicacion.nroInteracciones;
     var texto = primeraPublicacion.texto;
-    
+
     console.log(linkImagen, nombrePublicador, nroInteracciones, texto);
   } else {
-    console.log('No hay publicaciones disponibles');
+    console.log("No hay publicaciones disponibles");
   }
-  
+
   const perfil = [
     {
       nombreCompleto: data.nombreApellido,
@@ -76,7 +77,7 @@ const Perfil = () => {
       },
     },
   ];
-  
+
   // Acceder al primer objeto en el array de perfil para que aparezcan datos
   const userProfile = perfil[0];
   const idUsuario = localStorage.getItem("userID") || 1;
@@ -118,29 +119,7 @@ const Perfil = () => {
   };
 
   const handleSave = async () => {
-    const data = {
-      idUsuario: idUsuario, // Asume que este valor es estático o lo obtienes de otra parte
-      nombre: formData.nombre,
-      descripcion: formData.descripcion,
-      etiquetas: formData.tags.split(",").map((tag) => tag.trim()),
-      insignias: formData.insignias
-        .split(",")
-        .map((insignia) => insignia.trim()),
-      utpet: formData.utpet,
-    };
-
-    try {
-      await axios.post("http://localhost:3000/Users", data);
-
-      // Actualiza las variables de estado correspondientes
-      setNombreCompleto(formData.nombre);
-      setInsignias(data.insignias);
-
-      setShowEditModal(false);
-      console.log("Datos Guardados con éxito");
-    } catch (error) {
-      console.error("Error al guardar los datos:", error);
-    }
+    setShowEditModal(false);
   };
 
   //Actualizar valores
@@ -150,7 +129,7 @@ const Perfil = () => {
   return (
     <>
       <div className="flex flex-col">
-        <div className="bg-bgtitle text-bgtexttitle flex flex-col sm:flex-row h-fit lg:h-40 items-center">
+        <div className="bg-bgtitle text-bgtexttitle flex flex-col sm:flex-row h-fit lg:h-40 items-center max-w-[900px]">
           <img
             src={userProfile.linkImagen}
             alt=""
@@ -210,7 +189,7 @@ const Perfil = () => {
               .map((insignia, index) => (
                 <div
                   key={index}
-                  className="flex w-fit gap-3 items-center bg-bginsignia px-5 py-2 rounded-xl"
+                  className="flex w-fit gap-3 items-center bg-bginsignia px-1 sm:px-5 py-2 rounded-xl"
                 >
                   <img src={Insignia} alt="" className="rounded-full w-11" />
                   <div className="flex flex-col text-sm font-bold">
@@ -223,17 +202,14 @@ const Perfil = () => {
 
         <div className="flex flex-col sm:flex-row mt-5 sm:mt-10 text-textcard items-center sm:items-start">
           <div className="bg-bgcard p-4 text-center rounded-md h-[144px] w-full max-w-48 overflow-y-auto">
-            <span className="font-bold">Logros Pendientes</span>
-            {userProfile.logros.map((logro, index) => (
-              <div key={index} className="text-start p-2 flex flex-col gap-3">
-                <span className="text-xs">{logro}</span>
-                <div className="w-full rounded-full bg-slate-200 h-1 ">
-                  <div className="w-[20%] bg-bgpurplebutton h-1 rounded-full"></div>
-                </div>
+            <span className="font-bold">Acerca de</span>
+           
+              <div className="text-start p-2 flex flex-col gap-3">
+                <span className="text-sm">{userProfile.descripcion}</span>
               </div>
-            ))}
+           
           </div>
-          <div className="mt-7 sm:mt-0 sm:ml-14 sm:pl-14 sm:border-l-2 border-bgperfilline w-full">
+          <div className="mt-7 sm:mt-0 sm:ml-14 sm:pl-14 sm:border-l-2 border-bgperfilline w-full max-w-[600px]">
             <span className="text-lg font-bold">Última publicación</span>
             <div className="flex flex-col bg-bgcard p-3 rounded-xl text-lg mt-4">
               {Object.keys(userProfile.ultimaPublicacion).length === 0 ? (
@@ -317,9 +293,6 @@ const Perfil = () => {
                         type="text"
                         placeholder="Nombre"
                         className="bg-transparent max-w-14 outline-none text-end"
-                        name="nombre"
-                        value={formData.nombre}
-                        onChange={handleChange}
                       />
                     </div>
 
@@ -329,9 +302,6 @@ const Perfil = () => {
                         type="text"
                         placeholder="Descripción"
                         className="bg-transparent w-20 text-end outline-none"
-                        name="descripcion"
-                        value={formData.descripcion}
-                        onChange={handleChange}
                       />
                     </div>
                     <div className="flex justify-between bg-inputbackground border border-bordercolor rounded p-px px-2 items-center text-sm h-9">
@@ -340,9 +310,6 @@ const Perfil = () => {
                         type="text"
                         placeholder="Anime"
                         className="bg-transparent max-w-14 outline-none text-end"
-                        name="tags"
-                        value={formData.tags}
-                        onChange={handleChange}
                       />
                     </div>
                     <div className="flex justify-between bg-inputbackground border border-bordercolor rounded p-px px-2 items-center text-sm h-9">
@@ -351,9 +318,6 @@ const Perfil = () => {
                         type="text"
                         placeholder="Insignia"
                         className="bg-transparent max-w-14 outline-none text-end"
-                        name="insignias"
-                        value={formData.insignias}
-                        onChange={handleChange}
                       />
                     </div>
                     <div className="flex justify-between bg-inputbackground border border-bordercolor rounded p-px px-2 items-center text-sm h-9">
@@ -361,13 +325,13 @@ const Perfil = () => {
                       <input
                         type="checkbox"
                         className="bg-transparent max-w-14 outline-none"
-                        name="utpet"
-                        checked={formData.utpet}
-                        onChange={handleChange}
                       />
                     </div>
                   </div>
-                  <div className="bg-loginbutton cursor-pointer self-end px-4 w-fit mt-3  text-white font-bold text-sm py-1.5 rounded transition duration-200 ease-in-out hover:bg-loginbuttonhover focus:outline-none" onClick={handleSave}>
+                  <div
+                    className="bg-loginbutton cursor-pointer self-end px-4 w-fit mt-3  text-white font-bold text-sm py-1.5 rounded transition duration-200 ease-in-out hover:bg-loginbuttonhover focus:outline-none"
+                    onClick={handleSave}
+                  >
                     Guardar
                   </div>
                 </div>

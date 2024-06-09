@@ -3,7 +3,7 @@ import { IoIosMenu } from "react-icons/io";
 import { FiArrowLeft } from "react-icons/fi";
 import { LuUserCircle2, LuFiles } from "react-icons/lu";
 import { GrGroup } from "react-icons/gr";
-import { GoHome, GoPeople} from "react-icons/go";
+import { GoHome, GoPeople } from "react-icons/go";
 import ThemeButton from "../Utils/ThemeButton";
 import Header from "./Header";
 import { Link } from "react-router-dom";
@@ -23,7 +23,7 @@ const Sidebar = () => {
     setSidebarVisible(false);
   };
 
-  //Variable y Estado 
+  //Variable y Estado
   const [selectedLink, setSelectedLink] = useState(null);
 
   const handleLinkClick = (link) => {
@@ -37,6 +37,7 @@ const Sidebar = () => {
       setSelectedLink(storedLink); // Establecer el estado desde localStorage al cargar la página
     }
   }, []);
+  
 
   return (
     <>
@@ -105,7 +106,7 @@ const Sidebar = () => {
           onClick={() => handleLinkClick(PERFIL)}
         >
           <div className="flex flex-col gap-2 w-20 items-center">
-            <LuUserCircle2  className="text-2xl" />
+            <LuUserCircle2 className="text-2xl" />
             <span className=" text-xs">Perfil</span>
           </div>
         </Link>
@@ -120,7 +121,7 @@ const Sidebar = () => {
           onClick={() => handleLinkClick(RECURSOS)}
         >
           <div className="flex flex-col gap-2 w-20 items-center">
-            <LuFiles  className="text-2xl" />
+            <LuFiles className="text-2xl" />
             <span className=" text-xs">Recursos</span>
           </div>
         </Link>
@@ -146,7 +147,10 @@ const Sidebar = () => {
           <FiArrowLeft className="m-4" />
         </div>
         <div className="flex items-center gap-3 pb-4 pl-6 border-b border-b-divisorsidebar">
-          <img src={localStorage.getItem("imagen")} className="rounded-full h-10 w-10" />
+          <img
+            src={localStorage.getItem("imagen")}
+            className="rounded-full h-10 w-10"
+          />
           <div className="flex flex-col py-4">
             <span className="text-sm font-semibold">
               ¡Hola {localStorage.getItem("nombreApellido")}!
@@ -215,7 +219,7 @@ const Sidebar = () => {
               handleBackClick();
             }}
           >
-            <LuUserCircle2  className="text-2xl" />
+            <LuUserCircle2 className="text-2xl" />
             <span className="text-sm">Perfil</span>
           </Link>
           <Link
@@ -230,7 +234,7 @@ const Sidebar = () => {
               handleBackClick();
             }}
           >
-            <LuFiles  className="text-2xl" />
+            <LuFiles className="text-2xl" />
             <span className="text-sm">Recursos</span>
           </Link>
 

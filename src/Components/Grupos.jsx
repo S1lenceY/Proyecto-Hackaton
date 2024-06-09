@@ -99,7 +99,8 @@ const Grupos = () => {
     };
   
     try {
-      const response = await axios.post("http://localhost:3000/Grupo", newGroupData);
+      const response = await axios.post("https://apicollaboration-production.up.railway.app/api/v1/Grupos/newGroup", newGroupData);
+      console.log(response);
       const addedGroup = {
         idgrupo: response.data.id, // Suponiendo que la respuesta contiene el id del grupo creado
         nombreGrupo, // Mantener nombreGrupo en el estado del componente
@@ -241,7 +242,7 @@ const Grupos = () => {
                     <img
                       src={Logo}
                       alt=""
-                      className="h-24 w-80 object-cover rounded-t-lg"
+                      className="h-24 w-full object-cover rounded-t-lg"
                     />
                     <div className="flex items-center justify-between p-4 pb-0">
                       <span className="font-bold text-2xl text-textcard">

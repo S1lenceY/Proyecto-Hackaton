@@ -67,6 +67,9 @@ const Login = () => {
       localStorage.setItem("codigo", codigoUniversitario);
       localStorage.setItem("imagen", imagen);
 
+       //Establecemos El Link de Inicio
+       localStorage.setItem("selectedLink", "/UTPilot/Main/inicio");
+
       login(idUsuario);
       AxiosHeader();
       

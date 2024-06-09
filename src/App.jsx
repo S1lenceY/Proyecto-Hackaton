@@ -22,7 +22,9 @@ import Amigos from "./Components/Amigos";
 import Grupos from "./Components/Grupos";
 import Perfil from "./Components/Perfil";
 import Recursos from "./Components/Recursos";
+import getAmigos from "./Path/Apis.jsx/getAmigos";
 //import getPerfilData from "./Path/Apis.jsx/getPerfilData";
+
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,7 @@ const router = createBrowserRouter([
           },
           {
             path: AMIGOS,
+            loader: getAmigos,
             element: <Amigos />,
           },
           {

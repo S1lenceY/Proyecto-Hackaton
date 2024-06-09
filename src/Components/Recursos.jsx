@@ -195,7 +195,7 @@ const Recursos = () => {
                 <img
                   src={T1}
                   alt=""
-                  className="w-full sm:w-32 h-44 object-cover rounded-md"
+                  className="w-full sm:w-40 h-52 object-cover rounded-md"
                 />
                 <MdDownloadForOffline className="absolute bottom-2 right-2 text-4xl cursor-pointer" />
               </div>
@@ -203,7 +203,7 @@ const Recursos = () => {
                 <img
                   src={T2}
                   alt=""
-                  className="w-full sm:w-32 h-44 object-cover rounded-md"
+                  className="w-full sm:w-40 h-52 object-cover rounded-md"
                 />
                 <MdDownloadForOffline className="absolute bottom-2 right-2 text-4xl cursor-pointer" />
               </div>
@@ -211,7 +211,7 @@ const Recursos = () => {
                 <img
                   src={T1}
                   alt=""
-                  className="w-full sm:w-32 h-44 object-cover rounded-md"
+                  className="w-full sm:w-40 h-52 object-cover rounded-md"
                 />
                 <MdDownloadForOffline className="absolute bottom-2 right-2 text-4xl cursor-pointer" />
               </div>
@@ -219,7 +219,7 @@ const Recursos = () => {
                 <img
                   src={T2}
                   alt=""
-                  className="w-full sm:w-32 h-44 object-cover rounded-md"
+                  className="w-full sm:w-40 h-52 object-cover rounded-md"
                 />
                 <MdDownloadForOffline className="absolute bottom-2 right-2 text-4xl cursor-pointer" />
               </div>
