@@ -4,21 +4,6 @@
       "id": 1,
       "nombre": "David",
       "password": "1234"
-    },
-    {
-      "usuario": "asd",
-      "password": "asd",
-      "id": 2
-    },
-    {
-      "usuario": "U21209578",
-      "password": "IsthisPas123",
-      "id": 3
-    },
-    {
-      "usuario": "",
-      "password": "",
-      "id": 4
     }
   ],
   "Users": [
@@ -103,18 +88,28 @@
       "status": true,
       "idUsuario": 1,
       "idGrupo": 123
+    }
+  ],
+  "Grupo": [
+    {
+      "id": 0,
+      "nombre": "string",
+      "nombreTarea": "string",
+      "idCurso": 0,
+      "descripcion": "string",
+      "idsUsuarios": [
+        0
+      ]
     },
     {
-      "status": true,
-      "idUsuario": 1,
-      "idGrupo": 1234,
+      "nombre": "wa",
+      "nombreTarea": "wa",
+      "idCurso": "vacío",
+      "descripcion": "wa",
+      "idsUsuarios": [
+        "vacío"
+      ],
       "id": 1
-    },
-    {
-      "status": false,
-      "idUsuario": 1,
-      "idGrupo": 123,
-      "id": 2
     }
   ]
 }
