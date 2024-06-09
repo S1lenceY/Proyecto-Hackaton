@@ -88,6 +88,18 @@
       "status": true,
       "idUsuario": 1,
       "idGrupo": 123
+    },
+    {
+      "status": true,
+      "idUsuario": "2",
+      "idGrupo": 2,
+      "id": 1
+    },
+    {
+      "status": true,
+      "idUsuario": "2",
+      "idGrupo": 2,
+      "id": 2
     }
   ],
   "Grupo": [

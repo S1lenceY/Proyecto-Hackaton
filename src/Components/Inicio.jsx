@@ -16,6 +16,10 @@ const Inicio = () => {
 
   const id = localStorage.getItem("userID");
   const [data, setData] = useState({});
+  const [publicacion, setPublicacion] = useState([]);
+  const [invitacion, setInvitacion] = useState([]);
+  const [text, setText] = useState("");
+  const idUsuario = localStorage.getItem("userID") || 1;
 
   useEffect(() => {
     const fetchInicio = async () => {
@@ -27,39 +31,31 @@ const Inicio = () => {
       }
     };
     fetchInicio();
-  }, []);
-
-  var publicaciones = data.publicaciones || [];
-  var invitaciones = data.invitaciones || []; 
-
-  console.log(publicaciones);
-  console.log(invitaciones);
-
-  // Transformar las publicaciones
-  const publicacionesIniciales = publicaciones.map(publicacion => ({
-    text: publicacion.texto,
-    imgLink: publicacion.linkImagen || "",
-    nombre: publicacion.nombrePublicador,
-    Tiempo: "Hace poco..."
-  }));
-
-  // Transformar las invitaciones
-  const invitacionesIniciales = invitaciones.map(invitacion => ({
-    idGrupo: invitacion.idInvitacion,
-    text: invitacion.texto,
-    label: invitacion.nombreCurso
-  }));
-
-  const [publicacion, setPublicacion] = useState([]);
-  const [invitacion, setInvitacion] = useState([]);
-  
-  const [text, setText] = useState("");
-  const idUsuario = localStorage.getItem("userID") || 1;
+  }, [id]);
 
   useEffect(() => {
-    setPublicacion(publicacionesIniciales);
-    setInvitacion(invitacionesIniciales);
-  }, []);
+    if (Object.keys(data).length > 0) {
+      const publicaciones = data.publicaciones || [];
+      const invitaciones = data.invitaciones || [];
+
+      // Transformar las publicaciones
+      const publicacionesIniciales = publicaciones.map(publicacion => ({
+        text: publicacion.texto,
+        imgLink: publicacion.linkImagen || "",
+        nombre: publicacion.nombrePublicador,
+        Tiempo: "Hace poco..."
+      }));
+
+      // Transformar las invitaciones
+      const invitacionesIniciales = invitaciones.map(invitacion => ({
+        idGrupo: invitacion.idInvitacion,
+        text: invitacion.texto,
+        label: invitacion.nombreCurso
+      }));
+      setPublicacion(publicacionesIniciales);
+      setInvitacion(invitacionesIniciales);
+    }
+  }, [data]);
 
   const handlePost = async () => {
     const now = new Date();
@@ -80,10 +76,16 @@ const Inicio = () => {
     ]);
 
     setText("");
+
+    const postDataFeed = {
+      idUsuario: idUsuario,
+      texto: text
+    };
+
     try {
       const response = await axios.post(
-        "http://localhost:3000/Publipost",
-        postData
+        `https://apicollaboration-production.up.railway.app/api/v1/feed`,
+        postDataFeed
       );
 
       console.log("Publicación enviada:", response.data);
@@ -92,20 +94,32 @@ const Inicio = () => {
     }
   };
 
-  const handleInvitationResponse = async (idGrupo, status) => {
+  const handleInvitationResponse = async (idInvitacion, status, texto, nombreCurso) => {
     const postData = {
       status: status,
       idUsuario: idUsuario,
-      idGrupo: idGrupo,
+      idGrupo: idInvitacion,
+    };
+
+    if(status){
+      var estadoMiembro = "ACEPTADO"
+    }else{
+      var estadoMiembro = "RECHAZADO"
+    }
+
+    const postDataInvitacion = {
+      idInvitacion: idInvitacion,
+      texto: texto,
+      nombreCurso: nombreCurso,
+      estado_miembro: estadoMiembro
     };
 
     try {
-      const response = await axios.post("http://localhost:3000/Invita", postData);
-
+      const response = await axios.post("https://apicollaboration-production.up.railway.app/api/v1/feed/invitacion", postDataInvitacion);
       console.log("Respuesta de la invitación enviada:", response.data);
 
       // Actualizar la lista de invitaciones, eliminando la invitación respondida
-      setInvitacion(invitacion.filter((invitacion) => invitacion.idGrupo !== idGrupo));
+      setInvitacion(invitacion.filter((invitacion) => invitacion.idGrupo !== idInvitacion));
     } catch (error) {
       console.error("Error al enviar la respuesta de la invitación:", error);
     }
@@ -163,7 +177,7 @@ const Inicio = () => {
                 </div>
                 {publicacion.imgLink && (
                   <img
-                    src={Logo}
+                    src={publicacion.imgLink}
                     alt=""
                     className="h-52 w-full rounded-lg object-cover"
                   />
@@ -187,19 +201,19 @@ const Inicio = () => {
                 <div className="flex flex-col mb-5" key={index}>
                   <div className="flex items-center justify-around">
                     <span className="font-bold">{invitacion.text}</span>
-                    <span className="text-sm p-1 bg-[#b01f5f] text-white">
+                    <span className="text-sm p-1 bg-[#b01f5f] text-white text-nowrap max-w-28 overflow-x-auto scrollbar-thin">
                       {invitacion.label}
                     </span>
                     <button
                       className="text-xl cursor-pointer"
-                      onClick={() => handleInvitationResponse(invitacion.idGrupo, false)}
+                      onClick={() => handleInvitationResponse(invitacion.idGrupo, false, invitacion.text, invitacion.label)}
                     >
                       x
                     </button>
                   </div>
                   <button
                     className="self-end text-sm p-1 mt-2 px-4 rounded-lg text-white bg-bgpurplebutton"
-                    onClick={() => handleInvitationResponse(invitacion.idGrupo, true)}
+                    onClick={() => handleInvitationResponse(invitacion.idGrupo, false, invitacion.text, invitacion.label)}
                   >
                     Aceptar
                   </button>

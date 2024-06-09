@@ -152,9 +152,9 @@ const Perfil = () => {
       <div className="flex flex-col">
         <div className="bg-bgtitle text-bgtexttitle flex flex-col sm:flex-row h-fit lg:h-40 items-center">
           <img
-            src={UserImage}
+            src={userProfile.linkImagen}
             alt=""
-            className="w-full max-w-44 sm:max-w-60 m-5 ml-5 lg:translate-y-20"
+            className="w-full max-w-44 sm:max-w-60 m-5 ml-5 lg:translate-y-20 rounded-full"
           />
           <div className="flex flex-col justify-center items-center lg:flex-row">
             <div className="flex flex-col items-center lg:items-start text-3xl px-10 sm:pl-5 sm:pr-10 lg:px-10 lg:pl-5">
