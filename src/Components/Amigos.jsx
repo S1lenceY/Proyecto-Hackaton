@@ -41,7 +41,7 @@ const Amigos = () => {
 
   idUsuario = user.idUsuario; // Actualiza la variable idUsuario
 
-  console.log(`idUsuario: ${idUsuario}`);
+  console.log(`idUsuario: ${idUsuario}`); 
   console.log(`isSeguidor: ${isSeguidor}`); 
 
     const url = isSeguidor
