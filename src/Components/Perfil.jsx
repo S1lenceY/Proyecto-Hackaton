@@ -77,7 +77,6 @@ const Perfil = () => {
     },
   ];
   
-
   // Acceder al primer objeto en el array de perfil para que aparezcan datos
   const userProfile = perfil[0];
   const idUsuario = localStorage.getItem("userID") || 1;

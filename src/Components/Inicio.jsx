@@ -13,30 +13,46 @@ import Amigos from "../Assets/amigos.png";
 import Logo from "../Assets/Logo.webp";
 
 const Inicio = () => {
-  const publicacionesIniciales = [
-    {
-      text: "Estoy cansado de seguir todo el tiempo escribiendo como si fuera un loco desquiciado",
-      imgLink: "http://ejemplo.com/imagen.jpg",
-      nombre: "Usuario1",
-      Tiempo: "Hace 5 minutos",
-    },
-  ];
 
-  const invitacionesIniciales = [
-    {
-      idGrupo: 123,
-      text: "UTPILOT",
-      label: "Programación",
-    },
-    {
-      idGrupo: 1234,
-      text: "UTPILOTO",
-      label: "Programaciónes",
-    },
-  ];
+  const id = localStorage.getItem("userID");
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const fetchInicio = async () => {
+      try {
+        const response = await axios.get(`https://apicollaboration-production.up.railway.app/api/v1/feed/${id}`);
+        setData(response.data);
+      } catch (error) {
+        console.error('Error al obtener los datos:', error);
+      }
+    };
+    fetchInicio();
+  }, []);
+
+  var publicaciones = data.publicaciones || [];
+  var invitaciones = data.invitaciones || []; 
+
+  console.log(publicaciones);
+  console.log(invitaciones);
+
+  // Transformar las publicaciones
+  const publicacionesIniciales = publicaciones.map(publicacion => ({
+    text: publicacion.texto,
+    imgLink: publicacion.linkImagen || "",
+    nombre: publicacion.nombrePublicador,
+    Tiempo: "Hace poco..."
+  }));
+
+  // Transformar las invitaciones
+  const invitacionesIniciales = invitaciones.map(invitacion => ({
+    idGrupo: invitacion.idInvitacion,
+    text: invitacion.texto,
+    label: invitacion.nombreCurso
+  }));
 
   const [publicacion, setPublicacion] = useState([]);
   const [invitacion, setInvitacion] = useState([]);
+  
   const [text, setText] = useState("");
   const idUsuario = localStorage.getItem("userID") || 1;
 
