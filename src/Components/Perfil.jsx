@@ -10,24 +10,73 @@ import Logo from "../Assets/Logo.webp";
 import { useLoaderData } from "react-router-dom";
 
 const Perfil = () => {
+
+  const id = 1;
+
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const fetchPerfil = async () => {
+      try {
+        const response = await axios.get(`https://apicollaboration-production.up.railway.app/api/v1/perfil/${id}`);
+        setData(response.data);
+      } catch (error) {
+        console.error('Error al obtener los datos:', error);
+      }
+    };
+  
+    fetchPerfil();
+  }, []);
+
+  const nombreInsignias = data.nombreInsignias;
+  const publicaciones = data.publicaciones;
+  
+  var insigniasArray = []
+  
+  // Verificar si nombreInsignias existe y no es null
+  if (nombreInsignias && typeof nombreInsignias === 'object') {
+    // Convertir el objeto en un array
+    insigniasArray = Object.values(nombreInsignias);
+  } else {
+    console.log('nombreInsignias no está definido o es null');
+  }
+  
+  // Verificar si publicaciones existe y no es null
+  if (publicaciones && publicaciones.length > 0) {
+    // Acceder a la primera publicación
+    var primeraPublicacion = publicaciones[0];
+    // Acceder a las propiedades de la primera publicación
+    var linkImagen = primeraPublicacion.linkImagen;
+    var nombrePublicador = primeraPublicacion.nombrePublicador;
+    var nroInteracciones = primeraPublicacion.nroInteracciones;
+    var texto = primeraPublicacion.texto;
+    
+    console.log(linkImagen, nombrePublicador, nroInteracciones, texto);
+  } else {
+    console.log('No hay publicaciones disponibles');
+  }
+  
   const perfil = [
     {
-      nombreCompleto: "Juan Pérez",
-      codigoAlumno: "123456",
-      numeroPublicaciones: 10,
-      numeroSeguidores: 100,
-      numeroSeguidos: 50,
-      numeroMVP: 5,
-      insignias: ["Insignia1", "Insignia2", "Insignia3"],
-      logros: ["Logro1", "Logro2"],
+      nombreCompleto: data.nombreApellido,
+      codigoAlumno: data.codigoUniversitario,
+      numeroPublicaciones: data.nroPublicaciones,
+      numeroSeguidores: data.nroSeguidores,
+      numeroSeguidos: data.nroSeguidos,
+      numeroMVP: data.nroMvp,
+      insignias: insigniasArray,
+      logros: [],
+      descripcion: data.descripcion,
+      linkImagen: data.linkImagen,
       ultimaPublicacion: {
-        text: "¡Hola mundo!",
-        imgLink: "http://ejemplo.com/imagen.jpg",
-        nombre: "Usuario123",
-        Tiempo: "2024-06-06 15:30:00",
+        text: texto || "No hay publicaciones",
+        imgLink: linkImagen || "No hay imagen",
+        nombre: nombrePublicador || "Sin nombre",
+        Tiempo: "Hace poco...",
       },
     },
   ];
+  
 
   // Acceder al primer objeto en el array de perfil para que aparezcan datos
   const userProfile = perfil[0];
@@ -97,8 +146,7 @@ const Perfil = () => {
 
   //Actualizar valores
   // Extraer y manejar nombreCompleto e insignias como estados individuales
-  const [nombreCompleto, setNombreCompleto] = useState(perfil[0].nombreCompleto);
-  const [insignias, setInsignias] = useState(perfil[0].insignias);
+  //const [nombreCompleto, setNombreCompleto] = useState(perfil[0].nombreCompleto);
 
   return (
     <>
@@ -111,7 +159,7 @@ const Perfil = () => {
           />
           <div className="flex flex-col justify-center items-center lg:flex-row">
             <div className="flex flex-col items-center lg:items-start text-3xl px-10 sm:pl-5 sm:pr-10 lg:px-10 lg:pl-5">
-              <span>{nombreCompleto}</span>
+              <span>{perfil[0].nombreCompleto}</span>
               <span className="text-lg font-bold">
                 {userProfile.codigoAlumno}
               </span>
@@ -142,7 +190,7 @@ const Perfil = () => {
         <div className="flex items-center sm:items-start flex-col lg:pl-72 text-bgtexttitle py-5 sm:py-3 ml-3 relative">
           <div className="flex items-center gap-2">
             <span className="text-lg font-bold">Insignias Destacadas</span>
-            {insignias.length > 3 && !showAll && (
+            {perfil[0].insignias.length > 3 && !showAll && (
               <button onClick={handleToggle} className="text-bgtexttitle">
                 <span className="text-lg">&#9660;</span>
                 {/* Flecha hacia abajo */}
@@ -158,8 +206,8 @@ const Perfil = () => {
 
           {/* Añadir el .map de las insignias */}
           <div className="grid grid-cols-2 sm:grid-cols-3 mt-3 gap-5">
-            {insignias
-              .slice(0, showAll ? insignias.length : 3)
+            {perfil[0].insignias
+              .slice(0, showAll ? perfil[0].insignias.length : 3)
               .map((insignia, index) => (
                 <div
                   key={index}
