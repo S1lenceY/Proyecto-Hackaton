@@ -14,7 +14,7 @@ const Recursos = () => {
 <br />
 <br />
 <div class="text-xl font-semibold">
-    RECURSOS
+Plantillas
 </div>
 <div >
 <div class="container mx-auto">
@@ -23,12 +23,14 @@ const Recursos = () => {
             <div class="w-1/3">
                 <img src="src/Assets/mascota1.jpg" alt="Imagen" class="w-full h-auto"/>
             </div>
-            <a href="/Plantilla.jsx">
+            <a href="">
             <div class="w-2/3">
                
                 <div class="rounded-lg bg-white p-4">
-                    <h2 class="text-xl font-bold mb-4">Plantillas</h2>
-                    <p class="text-gray-700">Utiliza estas plantillas para poder realizar tus exposiciones de una manera format y siguiendo las recomendaciones de tus profesores.</p>
+                    <h2 class="text-xl font-bold mb-4">Diapositivas</h2>
+                    <p class="text-gray-700">
+                    Utiliza estas plantillas para poder realizar tus exposiciones de una manera format y siguiendo las recomendaciones de tus profesores.
+                    </p>
                 </div>
             </div>
             </a>
@@ -41,9 +43,10 @@ const Recursos = () => {
             </div>
             <a href="">
             <div class="w-2/3">
+               
                 <div class="rounded-lg bg-white p-4">
-                    <h2 class="text-xl font-bold mb-4">Almacenamiento Onedrive</h2>
-                    <p class="text-gray-700">Aprovecha los 5 Terabytes que te brinda la universidad para estructurar todos tus archivos a utilizar en un solo lugar.</p>
+                    <h2 class="text-xl font-bold mb-4">Artículos, Tesis y TA.</h2>
+                    <p class="text-gray-700">Utiliza estas plantillas para poder realizar tus exposiciones de una manera format y siguiendo las recomendaciones de tus profesores.</p>
                 </div>
             </div>
             </a>
