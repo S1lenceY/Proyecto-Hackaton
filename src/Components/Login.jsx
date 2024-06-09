@@ -48,13 +48,26 @@ const Login = () => {
 
     try {
       // Enviar los datos al backend para autenticación
-      const response = await axios.post("http://localhost:3000/login", {
-        usuario: formData.usuario,
-        password: formData.password,
+      const response = await axios.post("https://apicollaboration-production.up.railway.app/api/v1/login", {
+        codigo_universitario: formData.usuario,
+        contrasena: formData.password,
       });
 
-      
-      login(fixedToken);
+      const idUsuario = response.data
+
+      const response2 = await axios.get(`https://apicollaboration-production.up.railway.app/api/v1/perfil/${idUsuario}`);
+
+      const nombreApellido = response2.data.nombreApellido
+      const codigoUniversitario = response2.data.codigoUniversitario
+      const imagen = response2.data.linkImagen
+
+      // Guardar idUsuario en el localStorage
+      localStorage.setItem("userID", idUsuario);
+      localStorage.setItem("nombreApellido", nombreApellido);
+      localStorage.setItem("codigo", codigoUniversitario);
+      localStorage.setItem("imagen", imagen);
+
+      login(idUsuario);
       AxiosHeader();
       
     } catch (error) {

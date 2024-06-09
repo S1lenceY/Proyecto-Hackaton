@@ -4,7 +4,6 @@ import LogoUTP from "../../Assets/LogoCollaborateW.png";
 import { IoIosMenu, IoIosArrowDown } from "react-icons/io";
 import { AiOutlineSearch, AiOutlineDollar } from "react-icons/ai";
 import Dropdown from "./Dropdown";
-import User from "../../Assets/Logo.webp";
 
 const Header = ({ handleMenuClick }) => {
   return (
@@ -36,11 +35,11 @@ const Header = ({ handleMenuClick }) => {
             <div className=" pl-5 gap-4 items-center flex border-l-headerline border-l">
               <div className="flex flex-col text-headertext">
                 <span className="text-sm">
-                  Hola, <b>{localStorage.getItem("usuario")}</b>
+                  Hola, <b>{localStorage.getItem("nombreApellido")}</b>
                 </span>
                 <span className="text-xs self-end">Estudiante</span>
               </div>
-              <img src={User} className="rounded-full h-10 w-10" />
+              <img src={localStorage.getItem("imagen")} className="rounded-full h-10 w-10" />
             </div>
           </div>
 
