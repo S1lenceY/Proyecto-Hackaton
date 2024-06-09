@@ -17,6 +17,7 @@
     },
     {
       "usuario": "",
+<<<<<<< HEAD
       "password": "1234",
       "id": 4
     },
@@ -29,6 +30,10 @@
       "usuario": "",
       "password": "1234",
       "id": 6
+=======
+      "password": "",
+      "id": 4
+>>>>>>> 0b08ae62f5db8d585e6e0fb42888863ae2d8e0d7
     }
   ],
   "Users": [
