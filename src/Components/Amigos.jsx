@@ -18,10 +18,35 @@ const Amigos = () => {
   const userId = localStorage.getItem("userID");
 
   const handleFollowClick = async (user) => {
-    const { idUsuario, isSeguidor } = user;
+    let { idUsuario, isSeguidor } = user;
+
+  const nombreUsuario = user.nombre;
+
+  const availableUser = [
+    { idUser: 1, nombre: "Marí García", codigo: "U21209576" },
+    { idUser: 2, nombre: "Juan Perez", codigo: "U21209577" },
+    { idUser: 3, nombre: "Carlos Ramírez", codigo: "U21209578" },
+    { idUser: 4, nombre: "Ana López", codigo: "U21209579" },
+  ];
+
+  // Encuentra el objeto en availableUser que tenga el mismo nombre que nombreUsuario
+  const usuarioEncontrado = availableUser.find(user => user.nombre === nombreUsuario);
+
+  // Si se encuentra el usuario, asigna su idUser a idUsuario, de lo contrario asigna null o un valor predeterminado
+  if (usuarioEncontrado) {
+    user.idUsuario = usuarioEncontrado.idUser;
+  } else {
+    user.idUsuario = null; // o cualquier valor predeterminado que prefieras
+  }
+
+  idUsuario = user.idUsuario; // Actualiza la variable idUsuario
+
+  console.log(`idUsuario: ${idUsuario}`);
+  console.log(`isSeguidor: ${isSeguidor}`); 
+
     const url = isSeguidor
-      ? `https://apicollaboration-production.up.railway.app/api/v1/amigos/eliminar/${idUsuario}/${userId}`
-      : `https://apicollaboration-production.up.railway.app/api/v1/amigos/seguir/${idUsuario}/${userId}`;
+      ? `https://apicollaboration-production.up.railway.app/api/v1/amigos/eliminar/${userId}/${idUsuario}`
+      : `https://apicollaboration-production.up.railway.app/api/v1/amigos/seguir/${userId}/${idUsuario}`;
 
     try {
       await axios.post(url);
