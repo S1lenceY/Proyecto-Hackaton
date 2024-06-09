@@ -14,6 +14,26 @@
       "usuario": "U21209578",
       "password": "IsthisPas123",
       "id": 3
+    },
+    {
+      "usuario": "",
+      "password": "",
+      "id": 4
+    },
+    {
+      "usuario": "",
+      "password": "",
+      "id": 5
+    },
+    {
+      "usuario": "asd",
+      "password": "asd",
+      "id": 6
+    },
+    {
+      "usuario": "asd",
+      "password": "asd",
+      "id": 7
     }
   ],
   "Users": [
@@ -76,6 +96,55 @@
       "imgLink": null,
       "Tiempo": "2024-06-08T04:17:21",
       "id": 5
+    },
+    {
+      "idUsuario": 1,
+      "text": "Hola Soy Juan",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T04:33:50",
+      "id": 6
+    },
+    {
+      "idUsuario": 1,
+      "text": "Y me gusta",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T04:33:56",
+      "id": 7
+    },
+    {
+      "idUsuario": 1,
+      "text": "Dormir",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T04:33:59",
+      "id": 8
+    },
+    {
+      "idUsuario": 1,
+      "text": "asdasdasd",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T05:19:10",
+      "id": 9
+    },
+    {
+      "idUsuario": 1,
+      "text": "asddasd",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T05:19:12",
+      "id": 10
+    },
+    {
+      "idUsuario": 1,
+      "text": "asdasddsad",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T14:56:57",
+      "id": 11
+    },
+    {
+      "idUsuario": 1,
+      "text": "asdsda",
+      "imgLink": null,
+      "Tiempo": "2024-06-08T14:56:58",
+      "id": 12
     }
   ],
   "Invita": [
