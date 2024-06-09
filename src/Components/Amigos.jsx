@@ -14,6 +14,26 @@ const Amigos = () => {
   
   const [selectedUser, setSelectedUser] = useState(recomendado[0]);
 
+  //Logica para Seguir o dejar de seguir
+  const userId = localStorage.getItem("userID");
+
+  const handleFollowClick = async (user) => {
+    const { idUsuario, isSeguidor } = user;
+    const url = isSeguidor
+      ? `https://apicollaboration-production.up.railway.app/api/v1/amigos/eliminar/${idUsuario}/${userId}`
+      : `https://apicollaboration-production.up.railway.app/api/v1/amigos/seguir/${idUsuario}/${userId}`;
+
+    try {
+      await axios.post(url);
+      setSelectedUser((prevUser) => ({
+        ...prevUser,
+        isSeguidor: !prevUser.isSeguidor,
+      }));
+    } catch (error) {
+      console.error("Error al seguir/dejar de seguir:", error);
+    }
+  };
+
   return (
     <>
       <div className="bg-bgpurplebutton w-full p-2 absolute top-14 md:top-20 left-0 hidden sm:block text-white">
@@ -53,8 +73,13 @@ const Amigos = () => {
                   <span className="text-center mb-3 ">
                     {user.descripcion}
                   </span>
-                  <button className="text-sm p-2 rounded-lg text-white bg-bgpurplebutton">
-                    Seguir
+                  <button
+                    className={`text-sm p-2 rounded-lg text-white ${
+                      user.isSeguidor ? "bg-gray-500" : "bg-bgpurplebutton"
+                    }`}
+                    onClick={() => handleFollowClick(user)}
+                  >
+                    {user.isSeguidor ? "Siguiendo" : "Seguir"}
                   </button>
                 </div>
               </div>
@@ -69,8 +94,15 @@ const Amigos = () => {
             <div className="flex flex-col ml-5 w-full">
               <div className="flex items-center justify-between">
                 <span className="text-2xl font-bold">{selectedUser && selectedUser.nombre}</span>
-                <button className="text-sm p-1 px-3 lg:px-5 ml-1 lg:mr-4 rounded-lg text-white bg-bgpurplebutton">
-                  Seguir
+                <button
+                  className={`text-sm p-1 px-3 lg:px-5 ml-1 lg:mr-4 rounded-lg text-white bg-bgpurplebutton ${
+                    selectedUser.isSeguidor
+                      ? "bg-gray-500"
+                      : "bg-bgpurplebutton"
+                  }`}
+                  onClick={() => handleFollowClick(selectedUser)}
+                >
+                  {selectedUser.isSeguidor ? "Siguiendo" : "Seguir"}
                 </button>
               </div>
 
